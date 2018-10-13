@@ -44,10 +44,24 @@ $options = new DriverContainerOptions(
 ```php
 final class MyFirstModel extends DriverContainer
 {
-  public function isExists($myValue) {
+  public function doesExist($myValue) {
     return (int) $this->query('SELECT 1 FROM myTable WHERE myRow = ?', [$myValue])->fetchColumn();
   }
 }
+```
+
+# Firing up your Model (easy)
+```php
+DriverContainer::setOptions(new DriverContainerOptions(
+  'username',
+  'password',
+  'database_name'
+  'localhost'
+));
+
+echo MyFirstModel::getInstance()->doesExist('some context') ? "It exists" : "It doesn't exist";
+
+DriverContainer::flush(); // close connections to all Models instanced through getInstance()
 ```
 
 # Types of functions you can access (easy)
