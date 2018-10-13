@@ -54,6 +54,7 @@ final class MyFirstModel extends DriverContainer
 `\PDOEasy\DriverContainer::getSingleRow($sql, $values = [])` - Returns a single row of results from the query.
 `\PDOEasy\DriverContainer::getMultipleRows($sql, $values = [])` - Returns a multiple row of results from the query.
 `\PDOEasy\DriverContainer::query($sql, $values = [])` - Directly recieve the \PDOStatement after \PDOStatement::execute([]).
+
 `\PDOEasy\DriverContainer::doesExist($sql, $values = [])` - Check that rows do exists.
 `\PDOEasy\DriverContainer::getEntity()` - Advanced use only, returns the \PDO API instance.
 
