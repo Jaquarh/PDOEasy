@@ -72,20 +72,37 @@ DriverContainer::flush(); // close connections to all Models instanced through g
 `\PDOEasy\DriverContainer::doesExist($sql, $values = [])` - Check that rows do exists.
 `\PDOEasy\DriverContainer::getEntity()` - Advanced use only, returns the \PDO API instance.
 
-# Example of a model
+# Example of a model in action
 
 ```php
 final class MyFirstModel extends DriverContainer
 {
+  private $user;
+
   public function getUserById($unid) {
-    return new MyUser( $this->getSingleRow('SELECT unid, name, email FROM myUserTable WHERE unid = ?', [(int) $unid]) );
+    $this->user = new MyUser( $this->getSingleRow('SELECT unid, name, email FROM myUserTable WHERE unid = ?', [(int) $unid]) );
   }
   
-  public function insertUser($user) {
+  public function getUser() { return $this->user; }
+  
+  public function removeUser($user) {
     if(!$user instanceof MyUser)
       throw new Exception("Call to MyFirstModel::insertUser - param expected to be of type MyUser");
       
-    $this->query('INSERT INTO myUserTable (name, email) VALUES (?, ?)', [(int) $user->getUniqueNumberId(), $user->getEmail()]);
+    $this->query('DELETE FROM myUserTable WHERE unid = ? AND email = ?)', [(int) $user->getUniqueNumberId(), $user->getEmail()]);
   }
 }
+
+DriverContainer::setOptions(new DriverContainerOptions(
+  'username',
+  'password',
+  'database_name'
+  'localhost'
+));
+
+MyFirstModel::getInstance()->getUserById  ('1');
+MyFirstModel::getInstance()->getUserById    (2);
+MyFirstModel::getInstance()->removeUser(MyFirstModel::getInstance()->getUser());
+
+DriverContainer::flush();
 ```
