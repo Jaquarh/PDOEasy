@@ -1,5 +1,7 @@
 # PDOEasy
-Safely, and easily, allows you to create a PDO Skeleton. Continue to read on documentation:
+Safely, and easily, allows you to create a PDO Skeleton.
+Copyright 2018 Kyle Jeynes @ Daniel Pickering, All Rights Reserved.
+Continue to read on documentation:
 
 # Configuring your PDO Skeleton (easy)
 ```php
