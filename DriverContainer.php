@@ -20,7 +20,7 @@
  * @copyright  2018 Kyle Jeynes & Daniel Pickering
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    1.2.0
- * @release	   1.2.0
+ * @release    1.2.0
  * @link       https://github.com/Jaquarh/PDOEasy
  * @see        PDO, PDO::Prepare
  */
