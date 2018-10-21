@@ -20,8 +20,8 @@
  * @copyright  2018 Kyle Jeynes & Daniel Pickering
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    1.2.0
- * @release    1.2.0
- * @link       https://github.com/Jaquarh/PDOEasy
+ * @release       1.2.0
+ * @link       GIT LINK HERE
  * @see        PDO_MYSQL, PDO_ODBC, PDO_PGSQL, PDO_SQLITE
  */
 
@@ -76,7 +76,7 @@ final class DriverContainerOptions
     
     public function getDns()
     {
-        return "{$this->driver}:host={$this->host};dbname={$this->databaseName};port={$this->port};charset={$this->charset}";
+        return "{$this->driver}:host={$this->hostAddress};dbname={$this->databaseName};port={$this->port};charset={$this->charset}";
     }
     
     /**
