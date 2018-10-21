@@ -20,8 +20,8 @@
  * @copyright  2018 Kyle Jeynes & Daniel Pickering
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    1.2.0
- * @release    1.2.0
- * @link       https://github.com/Jaquarh/PDOEasy
+ * @release	   1.2.0
+ * @link       GIT LINK HERE
  * @see        PDO, PDO::Prepare
  */
  
@@ -42,7 +42,7 @@ abstract class DriverContainer {
   
   public static function setOptions($options) {
 	  if(!$options instanceof \PDOEasy\DriverContainerOptions)
-		  throw new Exception("PDOEasy cannot set the options for PDO API using " . get_class($options));
+		  throw new \Exception("PDOEasy cannot set the options for PDO API using " . get_class($options));
 	  self::$options = $options;
   }
   
@@ -55,10 +55,10 @@ abstract class DriverContainer {
 
     private static function init() {
 		if(empty(self::$options))
-			throw new Exception("PDOEasy cannot set the options for PDO API without call to \PDOEasy::setOptions(\PDOEasy\DriverContainerOptions)");
+			throw new \Exception("PDOEasy cannot set the options for PDO API without call to \PDOEasy::setOptions(\PDOEasy\DriverContainerOptions)");
 		
 		try {
-			$pdo = new PDO($options->getDns(), $options->getUsername(), $options->getPassword(), [
+			$pdo = new \PDO(self::$options->getDns(), self::$options->getUsername(), self::$options->getPassword(), [
 				\PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
 				\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
 				\PDO::ATTR_EMULATE_PREPARES   => false,
