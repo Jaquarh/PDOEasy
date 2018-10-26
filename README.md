@@ -3,6 +3,10 @@ Safely, and easily, allows you to create a PDO Skeleton.
 
 Copyright 2018 Kyle Jeynes @ Daniel Pickering, All Rights Reserved.
 
+# Please Note
+
+By default, [PDO::ATTR_EMULATE_PREPARES](http://php.net/manual/en/pdo.setattribute.php) is set to FALSE which may cause vulnerabilities in your web application. Open the DriverContainer.php file and search for `PDO::ATTR_EMULATE_PREPARES`. Set it to false if not needed.
+
 Continue to read on documentation:
 
 # Configuring your PDO Skeleton (easy)
